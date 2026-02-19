@@ -1,0 +1,7 @@
+{
+  "name": "command-dispatcher",
+  "description": "test",
+  "type": "policy-set",
+  "git": true,
+  "build": []
+}
