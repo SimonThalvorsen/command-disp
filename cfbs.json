@@ -3,7 +3,7 @@
   "description": "test",
   "type": "module",
   "git": true,
-  "provides": [
+  "provides": {
     {
       "name": "command-dispatcher",
       "description": "Command dispatcher for running shell commands on schedule",
@@ -48,5 +48,5 @@
         }
       ]
     }
-  ]
+  }
 }
