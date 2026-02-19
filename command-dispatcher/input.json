@@ -1,0 +1,40 @@
+[
+  {
+    "type": "list",
+    "variable": "commands_to_run",
+    "namespace": "command_dispatcher",
+    "bundle": "main",
+    "label": "Command",
+    "subtype": [
+      {
+        "key": "command",
+        "type": "string",
+        "label": "Command(s)",
+        "question": "Command(s) to run"
+      },
+      {
+        "key": "condition",
+        "type": "string",
+        "label": "Condition",
+        "question": "Condition for when to run"
+      },
+      {
+        "key": "ifelapsed",
+        "type": "string",
+        "label": "ifelapsed",
+        "question": "ifelapsed?",
+        "default": "5"
+      }
+    ],
+    "while": "Do you want to specify more commands to be run?",
+    "response": [
+      {
+        "command": "echo \"hello world\"",
+        "condition": "any",
+        "ifelapsed": "0"
+      },
+      { "command": "echo $(whoami)", "condition": "linux", "ifelapsed": "0" },
+      { "command": "sudo apt update", "condition": "debian", "ifelapsed": "5" }
+    ]
+  }
+]
