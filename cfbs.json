@@ -3,9 +3,9 @@
   "description": "test",
   "type": "module",
   "git": true,
-  "provides": {
-      "command-dispatcher": 
+  "provides": [
     {
+      "name": "command-dispatcher",
       "description": "Command dispatcher for running shell commands on schedule",
       "tags": ["local"],
       "subdirectory": "./command-dispatcher",
@@ -48,5 +48,5 @@
         }
       ]
     }
-  }
+  ]
 }
