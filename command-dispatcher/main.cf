@@ -21,25 +21,21 @@ bundle agent main
 
       "_condition[$(i)]"
         string => ifelse(
-          and(
-            isvariable("commands_to_run[$(i)][condition]"),
-            not(strcmp("$(commands_to_run[$(i)][condition])", ""))
-          ), "$(commands_to_run[$(i)][condition])",
+          not(strcmp("$(commands_to_run[$(i)][condition])", "")), 
+          "$(commands_to_run[$(i)][condition])",
           "any");
 
       "_ifelapsed[$(i)]"
         string => ifelse(
-          and(
-            isvariable("commands_to_run[$(i)][ifelapsed]"),
-            not(strcmp("$(commands_to_run[$(i)][ifelapsed])", ""))
-          ), "$(commands_to_run[$(i)][ifelapsed])",
-          "0");
+          not(strcmp("$(commands_to_run[$(i)][ifelapsed])", "")),
+          "$(commands_to_run[$(i)][ifelapsed])",
+          "5");
 
   reports:
     enabled::
       "Command [$(i)]: $(_command[$(i)]), condition: $(_condition[$(i)]), ifelapsed: $(_ifelapsed[$(i)])";
     !enabled::
-      "Command Dispatcher: commands_to_run variable not found";
+      "Command-dispatcher: commands_to_run variable not found";
 
   commands:
     enabled::
